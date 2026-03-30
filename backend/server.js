@@ -9,6 +9,7 @@ const vehicleRoutes = require('./routes/vehicles');
 const bookingRoutes = require('./routes/bookings');
 const dashboardRoutes = require('./routes/dashboard');
 
+const path = require('path');
 const app = express();
 
 // Middleware
@@ -25,6 +26,17 @@ app.use('/api/dashboard', dashboardRoutes);
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'BinDot API is running' });
+});
+
+// Serve static assets in production
+const frontendPath = path.join(__dirname, '../frontend/dist');
+app.use(express.static(frontendPath));
+
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ message: 'API route not found' });
+  }
+  res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 // Error handling middleware
