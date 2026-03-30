@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-carbon-950 text-accent-light font-body antialiased;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(147, 51, 234, 0.08), transparent),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.015) 39px,
+        rgba(255,255,255,0.015) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.015) 39px,
+        rgba(255,255,255,0.015) 40px
+      );
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-carbon-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-carbon-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-amber-500;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-carbon-900 border border-carbon-700 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-amber-500 hover:bg-amber-400 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-200 text-sm font-display shadow-lg shadow-amber-500/20;
+  }
+
+  .btn-secondary {
+    @apply bg-carbon-800 hover:bg-carbon-700 text-accent-light border border-carbon-600 hover:border-carbon-500 px-4 py-2 rounded-lg transition-all duration-200 text-sm;
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 hover:border-red-500/40 px-4 py-2 rounded-lg transition-all duration-200 text-sm;
+  }
+
+  .input {
+    @apply bg-carbon-800 border border-carbon-600 focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 rounded-lg px-3 py-2 text-sm text-accent-light placeholder-carbon-500 outline-none transition-all duration-200 w-full;
+  }
+
+  .label {
+    @apply text-xs font-medium text-carbon-500 uppercase tracking-wider mb-1 block;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium font-mono;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-carbon-800/50 transition-colors duration-150;
+  }
+
+  .section-title {
+    @apply font-display font-bold text-xl text-accent-light;
+  }
+
+  .stat-card {
+    @apply card p-5 flex flex-col gap-3 relative overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent;
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.25);
+  }
+}
+
+/* Page transition animation */
+.page-enter {
+  animation: pageEnter 0.25s ease forwards;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal animation */
+.modal-backdrop {
+  animation: fadeIn 0.15s ease forwards;
+}
+.modal-panel {
+  animation: slideUp 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
