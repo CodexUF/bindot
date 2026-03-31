@@ -70,6 +70,6 @@ npm run dev
 npm start
 ```
 
--   The **backend API** will be running at `http://localhost:5000`.
+![Activity_Diagram_Bindot](/Activity_Diagram_Bindot.png)
 -   The **frontend application** will be accessible at `http://localhost:3000`.
 
