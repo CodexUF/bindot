@@ -69,7 +69,12 @@ This command starts the frontend and backend development servers concurrently.
 npm run dev
 npm start
 ```
+-   The **frontend server** will be accessible at `http://localhost:3000`.
+-   The **backend server ** will be accessible at `http://localhost:5000`.
 
-![Activity_Diagram_Bindot](/Activity_Diagram_Bindot.png)
--   The **frontend application** will be accessible at `http://localhost:3000`.
+
+
+<p align="center">
+  <img src="/Activity_Diagram_Bindot.png" alt="Activity_Diagram_Bindot" width="400">
+</p>
 
